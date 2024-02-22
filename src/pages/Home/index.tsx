@@ -7,21 +7,21 @@ const cameras = [
   { host: '128.22.24.240', cameraId: '2' },
   { host: '128.22.24.240', cameraId: '3' },
   { host: '128.22.24.240', cameraId: '4' },
-  { host: '128.22.24.241', cameraId: '1' },
-  { host: '128.22.24.241', cameraId: '2' },
-  { host: '128.22.24.241', cameraId: '3' },
-  { host: '128.22.24.241', cameraId: '4' },
-  { host: '128.22.24.242', cameraId: '1' },
-  { host: '128.22.24.242', cameraId: '2' },
-  { host: '128.22.24.242', cameraId: '3' },
-  { host: '128.22.24.242', cameraId: '4' },
-  { host: '128.22.24.243', cameraId: '1' },
-  { host: '128.22.24.243', cameraId: '2' },
-  { host: '128.22.24.243', cameraId: '3' },
-  { host: '128.22.24.243', cameraId: '4' },
+  // { host: '128.22.24.241', cameraId: '1' },
+  // { host: '128.22.24.241', cameraId: '2' },
+  // { host: '128.22.24.241', cameraId: '3' },
+  // { host: '128.22.24.241', cameraId: '4' },
+  // { host: '128.22.24.242', cameraId: '1' },
+  // { host: '128.22.24.242', cameraId: '2' },
+  // { host: '128.22.24.242', cameraId: '3' },
+  // { host: '128.22.24.242', cameraId: '4' },
+  // { host: '128.22.24.243', cameraId: '1' },
+  // { host: '128.22.24.243', cameraId: '2' },
+  // { host: '128.22.24.243', cameraId: '3' },
+  // { host: '128.22.24.243', cameraId: '4' },
 ]
 
-const dev = false
+const dev = true
 
 const Home = () => {
   return (

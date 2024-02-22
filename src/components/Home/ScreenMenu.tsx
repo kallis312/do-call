@@ -75,7 +75,7 @@ const ScreenMenu = () => {
             <div className="flex gap-3 items-center">
               <select className="w-16 py-1 px-2 rounded-md ">
                 {
-                  Array.from({ length: 5 }).map((_, i) => (
+                  Array.from({ length: 4 }).map((_, i) => (
                     <option key={i}>{i + 1}</option>
                   ))
                 }
@@ -85,7 +85,7 @@ const ScreenMenu = () => {
               </div>
               <select className="w-16 py-1 px-2 rounded-md ">
                 {
-                  Array.from({ length: 5 }).map((_, i) => (
+                  Array.from({ length: 4 }).map((_, i) => (
                     <option key={i}>{i + 1}</option>
                   ))
                 }
