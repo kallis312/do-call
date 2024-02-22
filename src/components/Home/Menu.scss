@@ -1,0 +1,13 @@
+.menu-title {
+  @apply text-[#01CBA4] text-[16px] flex items-center relative p-1 font-bold;
+
+  &::before {
+    content: "";
+    @apply w-[5px] h-[5px] rounded-full bg-[#01CBA4] absolute right-[5px]
+  }
+
+  &::after {
+    content: "";
+    @apply h-[1px] bg-[#01CBA4] grow mr-1 ml-2;
+  }
+}

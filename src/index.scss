@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-size: 14px;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+html {
+  @apply scroll-smooth;
+  @extend .app-container;
+}
+
+body {
+  @extend .app-container;
+  margin: 0;
+  place-items: center;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  @apply px-2;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  // border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+
+  a:hover {
+    color: #747bff;
+  }
+
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+.scroll::-webkit-scrollbar {
+  @apply w-2 h-2;
+}
+
+/* Track */
+.scroll::-webkit-scrollbar-track {
+  @apply bg-[#434343];
+}
+
+/* Handle */
+.scroll::-webkit-scrollbar-thumb {
+  @apply bg-[#01CBA4];
+}
+
+/* Handle on hover */
+.scroll::-webkit-scrollbar-thumb:hover {
+  @apply bg-[#01CBA4];
+}
+
+.app-container {
+  @apply w-full h-full flex overflow-auto;
+}
