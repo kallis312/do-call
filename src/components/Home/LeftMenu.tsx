@@ -26,7 +26,10 @@ const LeftMenu = () => {
             <Tab.Group as={'div'} className={'w-[500px] flex flex-col max-h-full overflow-auto pt-2'}>
               <Tab.List className={'flex justify-between items-center'}>
                 <div className='w-full flex justify-center h-full items-center px-4'>
-                  <select className="px-2 py-1 w-full rounded-md" />
+                  <select className="px-2 py-1 w-full rounded-md" >
+                    <option>エリア名称</option>
+                    <option>サンプルアイテム</option>
+                  </select>
                 </div>
                 <div className='flex gap-1 pr-4'>
                   <Tab className={'py-3 px-6 text-nowrap ui-not-selected:bg-black text-white rounded-none ui-selected:bg-[#017A62] ui-selected:border-b-4 ui-selected:border-b-[#01CBA4]'}>監 視</Tab>
@@ -38,10 +41,10 @@ const LeftMenu = () => {
                 <Tab.Panel className={'app-container flex-col'}>
                   <MonitoringMenu />
                 </Tab.Panel>
-                <Tab.Panel >
+                <Tab.Panel className={'app-container flex-col'}>
                   <RecordMenu />
                 </Tab.Panel>
-                <Tab.Panel >
+                <Tab.Panel className={'app-container flex-col'}>
                   <ScreenMenu />
                 </Tab.Panel>
               </Tab.Panels>

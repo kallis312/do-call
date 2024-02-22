@@ -32,7 +32,7 @@ a:hover {
 }
 
 html {
-  @apply scroll-smooth;
+  @apply scroll-smooth select-none;
   @extend .app-container;
 }
 

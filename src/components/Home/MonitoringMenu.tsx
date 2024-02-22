@@ -1,4 +1,4 @@
-import { BoxArrowUpRight, TelephoneOutbound, VolumeDown } from "react-bootstrap-icons";
+import { ArrowTopRightOnSquareIcon, PhoneArrowUpRightIcon, SpeakerWaveIcon } from "@heroicons/react/24/outline"
 
 const MonitoringMenu = () => {
   return (
@@ -12,7 +12,10 @@ const MonitoringMenu = () => {
           </div>
           <div className="py-2 px-4 border-b-black border-b flex gap-2 justify-between w-full items-center">
             <div className="w-full items-center h-full flex">
-              <select className="p-2 w-full rounded-md" />
+              <select className="px-4 py-1 w-full rounded-md" >
+                <option>全車両一括停止</option>
+                <option>サンプルアイテム</option>
+              </select>
             </div>
             <div className="w-36">
               <button className="bg-[#FF004E] hover:opacity-75 text-white rounded-full px-4 py-1 text-nowrap">実 行</button>
@@ -21,13 +24,19 @@ const MonitoringMenu = () => {
           <div className="py-2 px-4 flex flex-col gap-4 justify-between w-full items-center">
             <div className="flex w-full gap-2">
               <div className="w-full items-center h-full flex">
-                <select className="p-2 w-full rounded-md" />
+                <select className="px-4 py-1 w-full rounded-md" >
+                  <option>監視対象グループ名称</option>
+                  <option>サンプルアイテム</option>
+                </select>
               </div>
               <div className="w-36" />
             </div>
             <div className="flex w-full gap-2">
               <div className="w-full items-center h-full flex">
-                <select className="p-2 w-full rounded-md" />
+                <select className="px-4 py-1 w-full rounded-md" >
+                  <option>監視対象グループ名称</option>
+                  <option>サンプルアイテム</option>
+                </select>
               </div>
               <div className="w-36" >
                 <button className="bg-[#01CBA4] hover:opacity-75 text-white rounded-full px-4 py-1 text-nowrap">移 動</button>
@@ -49,7 +58,10 @@ const MonitoringMenu = () => {
             <div className="rounded-md " key={i}>
               <div className="bg-[#434343] rounded-t-md text-white py-2 px-2 text-left flex justify-between items-center">
                 <span className="w-full">ID xxxxxx</span>
-                <select className="px-2 py-1 w-72 text-black rounded-md" />
+                <select className="px-2 py-1 w-72 text-black rounded-md" >
+                  <option>車両状態</option>
+                  <option>サンプルアイテム</option>
+                </select>
               </div>
 
               <div className="bg-[#2E2E2E] rounded-b-md ">
@@ -63,14 +75,14 @@ const MonitoringMenu = () => {
                     </div>
                   </div>
                   <div className="w-full flex gap-3 justify-center">
-                    <button className="rounded-full w-14 h-14 flex justify-center items-center">
-                      <BoxArrowUpRight size={22} color="#01CBA4" />
+                    <button className="rounded-full p-3 w-14 h-14 justify-center items-center text-[#01CBA4] hover:bg-[#01CBA4] hover:text-white">
+                      <ArrowTopRightOnSquareIcon />
                     </button>
-                    <button className="rounded-full w-14 h-14 flex justify-center items-center">
-                      <TelephoneOutbound size={22} color="#01CBA4" />
+                    <button className="rounded-full p-3 w-14 h-14 justify-center items-center text-[#01CBA4] hover:bg-[#01CBA4] hover:text-white">
+                      <PhoneArrowUpRightIcon />
                     </button>
-                    <button className="rounded-full w-14 h-14 flex justify-center items-center">
-                      <VolumeDown size={32} color="#01CBA4" />
+                    <button className="rounded-full p-3 w-14 h-14 justify-center items-center text-[#01CBA4] hover:bg-[#01CBA4] hover:text-white">
+                      <SpeakerWaveIcon />
                     </button>
                   </div>
                 </div>
