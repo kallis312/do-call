@@ -1,0 +1,11 @@
+.bg-login {
+  background-color: #20305c;
+  @apply relative;
+
+  &::before {
+    content: "";
+    @apply w-full h-full absolute opacity-20 top-0 left-0;
+    background-image: url('/svg/bg-pattern.svg');
+    background-size: 110px 110px;
+  }
+}

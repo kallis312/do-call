@@ -30,10 +30,10 @@ const Home = () => {
       <div className="bg-[#0A6774] app-container py-2">
         <LeftMenu />
         <div className="app-container flex-col px-2">
-          <div className="grid grid-cols-4 grid-rows-4 w-full gap-2 h-full">
+          <div className="grid grid-cols-4 grid-rows-4 w-full gap-2 h-full  overflow-auto scroll">
             {
               cameras.map((_, i) => (
-                <div key={i} className="flex flex-col justify-center text-sm  w-full h-full bg-black text-white relative">
+                <div key={i} className="flex flex-col justify-center text-sm w-full h-full bg-black text-white relative">
                   {dev ? < BasicPlayer
                     hostname={_.host}
                     format={Format.RTP_H264}

@@ -9,7 +9,7 @@ const MonitoringMenu = () => {
           <div className="bg-[#434343] rounded-t-md text-white py-1 px-2 text-left">情報一覧</div>
           <div className="bg-[#2E2E2E] rounded-b-md ">
             <div className="py-2 px-4 border-b-black border-b">
-              <textarea rows={5} className="w-full rounded-md" />
+              <textarea rows={5} className="w-full rounded-md p-2" />
             </div>
             <div className="py-2 px-4 border-b-black border-b flex gap-2 justify-between w-full items-center">
               <div className="w-full items-center h-full flex">
