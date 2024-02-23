@@ -1,10 +1,6 @@
 import { forwardRef, useImperativeHandle, useState } from "react"
 import ScreenSelectToogle from "../common/ScreenSelectToogle"
 
-type Props = {
-
-}
-
 const InitScreens = [
   { w: 1, h: 1, isCamera: true },
   { w: 1, h: 1, isCamera: true },
@@ -28,7 +24,7 @@ export type cameraRef = {
   setCameraView: ({ w, h }: { w?: number, h?: number }) => void
 }
 
-const CameraLayout = forwardRef<cameraRef, Props>((props, ref) => {
+const CameraLayout = forwardRef<cameraRef>((_props, ref) => {
   const [selected, setSelected] = useState<number>(0)
   const [layout, setLayout] = useState(InitScreens)
 
