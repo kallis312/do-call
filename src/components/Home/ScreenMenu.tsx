@@ -1,12 +1,22 @@
-import { useRef } from "react"
-import CameraLayout, { cameraRef } from "../Menu/CameraLayout"
+import { HomeContext } from "@/pages/Home/HomeProvider"
+import { useContext, useRef, useState } from "react"
+import CameraLayout, { LayoutItem, cameraRef } from "../Menu/CameraLayout"
 import Switch from "../common/Switch"
+import { LayoutType } from "@/define/types/Layout"
 
 
 
 const ScreenMenu = () => {
   const camLayoutRef = useRef<cameraRef>(null)
+  const layoutRef = useRef<LayoutType[]>([])
+  const [selectedItem, setSelectedItem] = useState<LayoutItem | undefined>({ x: 0, y: 0, w: 1, h: 1 })
+  const { setLayout } = useContext(HomeContext)
+  const [dimon, setDimon] = useState<{ w: number, h: number }>({ w: 1, h: 1 })
 
+
+  const onLayoutChange = (layout: LayoutType[]) => {
+    layoutRef.current = layout
+  }
   return (
     <div className="app-container flex-col p-2 gap-2">
       <div className="menu-title">設 定</div>
@@ -69,18 +79,27 @@ const ScreenMenu = () => {
           <div className="rounded-md ">
             <div className="bg-[#434343] rounded-t-md text-white py-1 px-2 text-left">表示画面構成</div>
             <div className="bg-[rgb(46,46,46)] rounded-b-md">
-              <CameraLayout ref={camLayoutRef} />
+              <CameraLayout ref={camLayoutRef}
+                onLayoutChange={onLayoutChange}
+                onLayoutSelect={(item) => {
+                  setSelectedItem(item)
+                }} />
             </div>
           </div>
-          <button >Test Button</button>
           {/* Section start */}
           <div className="rounded-md ">
             <div className="bg-[#434343] rounded-t-md text-white py-1 px-2 text-left">表示画面サイズ（横×縦）</div>
             <div className="bg-[rgb(46,46,46)] rounded-b-md py-2 px-4 ">
               <div className="flex gap-3 items-center">
-                <select className="w-16 py-1 px-2 rounded-md" onChange={(e) => camLayoutRef.current?.setCameraView({ w: Number(e.target.value) })}>
+                <select
+                  value={dimon.w}
+                  className="w-16 py-1 px-2 rounded-md"
+                  onChange={(e) => {
+                    camLayoutRef.current?.setCameraView({ w: Number(e.target.value) })
+                    setDimon(prev => ({ ...prev, w: Number(e.target.value) }))
+                  }}>
                   {
-                    Array.from({ length: 4 }).map((_, i) => (
+                    Array.from({ length: 4 - (selectedItem?.x || 0) }).map((_, i) => (
                       <option value={i + 1} key={i}>{i + 1}</option>
                     ))
                   }
@@ -88,9 +107,13 @@ const ScreenMenu = () => {
                 <div className="text-white text-2xl">
                   ×
                 </div>
-                <select className="w-16 py-1 px-2 rounded-md" onChange={(e) => camLayoutRef.current?.setCameraView({ h: Number(e.target.value) })}>
+                <select value={dimon.h} className="w-16 py-1 px-2 rounded-md"
+                  onChange={(e) => {
+                    camLayoutRef.current?.setCameraView({ h: Number(e.target.value) })
+                    setDimon(prev => ({ ...prev, h: Number(e.target.value) }))
+                  }}>
                   {
-                    Array.from({ length: 4 }).map((_, i) => (
+                    Array.from({ length: 4 - (selectedItem?.y || 0) }).map((_, i) => (
                       <option value={i + 1} key={i}>{i + 1}</option>
                     ))
                   }
@@ -148,7 +171,10 @@ const ScreenMenu = () => {
 
           {/* Bottom Button start */}
           <div className="flex gap-4 justify-center">
-            <button className="py-3 px-12 rounded-full font-extrabold bg-[#01CBA4] hover:opacity-75 text-white">表 示</button>
+            <button onClick={() => {
+              console.log(camLayoutRef.current?.layout)
+              setLayout(camLayoutRef.current?.layout || [])
+            }} className="py-3 px-12 rounded-full font-extrabold bg-[#01CBA4] hover:opacity-75 text-white">表 示</button>
             <button className="py-3 px-12 rounded-full font-extrabold bg-[#01CBA4] hover:opacity-75 text-white">保 存</button>
           </div>
         </div>

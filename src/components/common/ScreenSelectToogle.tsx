@@ -1,3 +1,4 @@
+import { colSpan, rowSpan } from "@/define/constants"
 import { FC } from "react"
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
@@ -7,22 +8,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
   isCamera?: boolean
 }
 
-const colSpan = [
-  'col-span-1',
-  'col-span-2',
-  'col-span-3',
-  'col-span-4',
-]
-
-const rowSpan = [
-  'row-span-1',
-  'row-span-2',
-  'row-span-3',
-  'row-span-4',
-]
-
 const ScreenSelectToogle: FC<Props> = ({ children, w, h, selected, isCamera, ...rest }) => {
-  console.log(isCamera)
   return (
     <div
       {...rest}

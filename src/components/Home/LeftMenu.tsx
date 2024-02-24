@@ -3,6 +3,8 @@ import './Menu.scss'
 import MonitoringMenu from './MonitoringMenu'
 import RecordMenu from './RecordMenu'
 import ScreenMenu from './ScreenMenu'
+import { useContext, useEffect } from 'react'
+import { HomeContext } from '@/pages/Home/HomeProvider'
 
 // const options = [
 //   { value: '0', label: 'エリア名称' },
@@ -18,6 +20,8 @@ import ScreenMenu from './ScreenMenu'
 // ];
 
 const LeftMenu = () => {
+
+
   return (
     <Disclosure as={'div'} className={'flex '}>
       {({ open }) => (
