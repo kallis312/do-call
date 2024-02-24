@@ -45,6 +45,7 @@ const Home = () => {
 
 const CameraPannel = () => {
   const { layout } = useContext(HomeContext)
+  console.log(layout)
   return (
     <div className="grid grid-cols-4 grid-rows-4 w-full gap-2 h-full  overflow-auto scroll" >
       {
