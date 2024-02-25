@@ -33,7 +33,7 @@ a:hover {
 }
 
 html {
-  @apply scroll-smooth select-none;
+  @apply scroll-smooth;
   @extend .app-container;
 }
 
@@ -88,12 +88,12 @@ button:focus-visible {}
 
 /* Handle */
 .scroll::-webkit-scrollbar-thumb {
-  @apply bg-[#01CBA4];
+  @apply bg-[#01CBA4] bg-opacity-75;
 }
 
 /* Handle on hover */
 .scroll::-webkit-scrollbar-thumb:hover {
-  @apply bg-[#01CBA4];
+  @apply bg-[#01CBA4] bg-opacity-100;
 }
 
 .app-container {

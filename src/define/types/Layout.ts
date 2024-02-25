@@ -4,3 +4,5 @@ export type LayoutType = {
   x: number;
   y: number;
 }
+
+export type ViewType = 'normal' | 'auto' | 'abnormal'
