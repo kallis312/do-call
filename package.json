@@ -21,6 +21,8 @@
     "react-router-dom": "^6.22.1",
     "react-select": "^5.8.0",
     "react-switch": "^7.0.0",
+    "reactjs-popup": "^2.0.6",
+    "rodal": "^2.1.0",
     "sweetalert2": "^11.10.5"
   },
   "devDependencies": {

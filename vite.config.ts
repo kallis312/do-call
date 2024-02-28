@@ -9,9 +9,9 @@ export default defineConfig({
       '/api': 'http://localhost:5117'
     }
   },
-  // build: {
-  //   outDir: '../wwwroot'
-  // },
+  build: {
+    outDir: '../wwwroot'
+  },
   resolve: {
     alias: [
       { find: '@', replacement: '/src' },

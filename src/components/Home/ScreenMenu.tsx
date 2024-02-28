@@ -2,6 +2,7 @@ import { HomeContext } from "@/pages/Home/HomeProvider"
 import { useContext, useRef, useState } from "react"
 import CameraLayout, { LayoutItem, cameraRef } from "../Menu/CameraLayout"
 import Switch from "../common/Switch"
+import Rodal from 'rodal'
 import { LayoutType, ViewType } from "@/define/types/Layout"
 import CheckBox from "../common/CheckBox"
 
@@ -16,6 +17,7 @@ const ScreenMenu = () => {
   const [editMode, setEditMode] = useState<boolean>(false)
   const [newFileMode, setNewFileMode] = useState<boolean>(false)
   const [viewMode, setViewMode] = useState<ViewType>('normal')
+  const [infoVisible, setInfoVisible] = useState<boolean>(false)
 
 
   const onLayoutChange = (layout: LayoutType[]) => {
@@ -73,7 +75,7 @@ const ScreenMenu = () => {
                 <div className="py-2 px-4 flex gap-8 justify-between w-full items-center">
                   <CheckBox value={newFileMode} onChange={setNewFileMode} label="新規作成" />
                   <div className="w-full">
-                    <input type="text" className="py-1 px-4 rounded-md w-full" />
+                    <input type="text" className="py-1 px-2 rounded-md w-full" />
                   </div>
                 </div>
               </div>
@@ -92,7 +94,7 @@ const ScreenMenu = () => {
             </div>
             {/* Section start */}
             <div className="rounded-md ">
-              <div className="bg-[#434343] rounded-t-md text-white py-1 px-2 text-left">表示画面サイズ（横×縦）</div>
+              <div className="bg-[#434343] rounded-t-md text-white py-1 px-2 text-left">表示画面サイズ（横×縦）/自動レイアウト切替時間</div>
               <div className="bg-[rgb(46,46,46)] rounded-b-md py-2 px-4 flex gap-3">
                 <div className="flex gap-3 items-center w-full">
                   <select
@@ -123,15 +125,20 @@ const ScreenMenu = () => {
                     }
                   </select>
                 </div>
-                <div className="w-full">
-
-                </div>
+                {viewMode !== "normal" &&
+                  <div className="w-full flex gap-3 h-full items-center">
+                    <input type="text" className="py-1 px-2 rounded-md w-16" />
+                    <div className="text-white">秒</div>
+                    <div className="w-full" />
+                    <button className="py-2 px-8 rounded-full text-nowrap font-extrabold bg-[#01CBA4] hover:opacity-75 text-white">設 定</button>
+                  </div>
+                }
               </div>
             </div>
 
             {/* Section start */}
             <div className="rounded-md ">
-              <div className="bg-[#434343] rounded-t-md text-white py-1 px-2 text-left">監視対象グループ / 監視対象</div>
+              <div className="bg-[#434343] rounded-t-md text-white py-1 px-2 text-left">監視対象グループ / 監視対象 / カメラ表示・非表示切替</div>
               <div className="bg-[rgb(46,46,46)] rounded-b-md py-2 px-4 flex flex-col gap-2">
                 <div className="flex gap-3 items-center">
                   <select className="w-full py-1 px-2 rounded-md ">
@@ -143,8 +150,13 @@ const ScreenMenu = () => {
                     <option>サンプルアイテム</option>
                   </select>
                 </div>
-                <div className="flex gap-2">
-                  <div className="w-full" />
+                <div className="flex gap-3">
+                  <div className="w-full">
+                    <select className="w-full py-1 px-2 rounded-md ">
+                      <option>車内カメラ</option>
+                      <option>サンプルアイテム</option>
+                    </select>
+                  </div>
                   <div className="flex w-full items-center gap-4">
                     <input id="check_3" type="checkbox" className="w-[18px] h-[18px] accent-[#01CBA4]" />
                     <label htmlFor="check_3" className="text-white text-nowrap" >映像表示ボタンと関連付ける</label>
@@ -152,35 +164,24 @@ const ScreenMenu = () => {
                 </div>
               </div>
             </div>
-
-            <div className={"flex gap-2 " + (viewMode === 'auto' && ' flex-col')}>
-              {/* Section start */}
-              <div className="rounded-md w-full">
-                <div className="bg-[#434343] rounded-t-md text-white py-1 px-2 text-left">カメラ</div>
-                <div className="bg-[rgb(46,46,46)] rounded-b-md py-2 px-4 ">
-                  <select className="w-full py-1 px-2 rounded-md ">
-                    <option>車内カメラ</option>
-                    <option>サンプルアイテム</option>
-                  </select>
-                </div>
+            {/* Section start */}
+            <div className="rounded-md w-full">
+              <div className="bg-[#434343] rounded-t-md text-white py-1 px-2 text-left">目標FPS</div>
+              <div className="bg-[rgb(46,46,46)] rounded-b-md py-2 px-4 ">
+                <select className="w-full py-1 px-2 rounded-md cursor-pointer">
+                  {['自動', 5, 10, 15, 20, 25, 30].map((_, i) => (
+                    <option className="" key={i}>{_}</option>
+                  ))}
+                </select>
               </div>
-
-              {/* Section start */}
-              <div className="rounded-md w-full">
-                <div className="bg-[#434343] rounded-t-md text-white py-1 px-2 text-left">目標FPS</div>
-                <div className="bg-[rgb(46,46,46)] rounded-b-md py-2 px-4 ">
-                  <select className="w-full py-1 px-2 rounded-md ">
-                    {['自動', 5, 10, 15, 20, 25, 30].map((_, i) => (
-                      <option key={i}>{_}</option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-
             </div>
+
             {/* Bottom Button start */}
             <div className="flex gap-4 justify-center">
-              <button className="py-2 px-8 rounded-full font-extrabold bg-[#01CBA4] hover:opacity-75 text-white">設定情報</button>
+              <button onClick={() => setInfoVisible(true)} className="py-2 px-8 rounded-full font-extrabold bg-[#01CBA4] hover:opacity-75 text-white">設定情報</button>
+              <Rodal width={600} className="p-0" closeOnEsc visible={infoVisible} duration={0} onClose={() => setInfoVisible(false)}>
+                <div className="text-2xl font-medium w-fll text-left">Title user</div>
+              </Rodal>
               <button onClick={() => {
                 console.log(camLayoutRef.current?.layout)
                 setLayout(camLayoutRef.current?.layout || [])
