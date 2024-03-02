@@ -179,7 +179,7 @@ const ScreenMenu = () => {
             {/* Bottom Button start */}
             <div className="flex gap-4 justify-center">
               <button onClick={() => setInfoVisible(true)} className="py-2 px-8 rounded-full font-extrabold bg-[#01CBA4] hover:opacity-75 text-white">設定情報</button>
-              <Rodal width={600} className="p-0" closeOnEsc visible={infoVisible} duration={0} onClose={() => setInfoVisible(false)}>
+              <Rodal width={600} className="p-0" visible={infoVisible} duration={0} onClose={() => setInfoVisible(false)}>
                 <div className="text-2xl font-medium w-fll text-left">Title user</div>
               </Rodal>
               <button onClick={() => {
