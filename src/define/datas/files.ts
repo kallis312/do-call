@@ -11,7 +11,7 @@ export const files: LayoutSetting[] = [
     disp_comp: [
       {
         g_id: "0",
-        group_id: "1",
+        group_id: "1",//
         h: 1,
         w: 1,
         group_name: "group 0",
