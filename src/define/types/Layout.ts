@@ -23,7 +23,7 @@ export type DispLayout = {
   //監視対象グループ名
   group_name: string
   //自動レイアウト切替時間
-  time: number
+  time?: number
   tagets: {
     //監視対象ID
     target_id: string
@@ -59,7 +59,7 @@ export type DispLayout = {
 // 
 export type LayoutSetting = {
   //実行フラグ
-  setteing_run: boolean | undefined
+  setteing_run?: boolean
   //事業者ID
   operator_id: string
   //エリアID
@@ -100,4 +100,3 @@ export type LayoutSetting = {
  * @type { DELETE }
  * @response Success | Error
  */
-
