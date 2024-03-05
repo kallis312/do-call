@@ -224,8 +224,3 @@ export const files: LayoutSetting[] = [
     ]
   },
 ];
-
-//
-//
-//
-//
